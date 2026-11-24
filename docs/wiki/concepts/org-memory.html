@@ -1,0 +1,31 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>組織記憶與教訓</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>組織記憶與教訓</h1>
+<p>組織記憶屬於組織，不屬於任何專案，放在 ~/agent-org/；每個角色都有一份常駐清單，加上派工時按需取出的教訓。<span class="src">[來源: design-doc]</span></p>
+<h2>三個時間點</h2>
+<ol>
+<li><strong>記錄</strong>：審查擋下、測試抓到漏的、負責人在關卡說「改」，org.py 自動寫進 episodes。</li>
+<li><strong>提煉</strong>：回顧時知識管理員讀事件，合併重複、附上證據，寫成教訓。</li>
+<li><strong>讀取</strong>：派工時 org.py 依角色、專案、技術棧、路徑篩出相關教訓放進 brief。<span class="src">[來源: design-doc, readme]</span></li>
+</ol>
+<p>少了讀取這一步，它就只是一個沒人看的資料夾。<span class="src">[來源: design-doc]</span></p>
+<h2>每個角色從下游學</h2>
+<p>被擋下的一方記一條「不能這樣做」；如果審查者放行、問題卻在更下游才被發現，審查者也要記一條「這種東西我漏過」。<span class="src">[來源: design-doc]</span></p>
+<h2>為什麼這樣設計</h2>
+<p>使用者一開始就說要記住「哪些地方被擋下來過 不能怎麼寫 怎麼寫會有問題」，而且「參與開發的每個角色 應該都要有自己的knowledge」。<span class="src">[來源: past-discussions]</span></p>
+<h2>教訓會冷藏、升級、自動化</h2>
+<ul>
+<li>冷藏：教訓連續 10 次在範圍內卻沒放進 brief，就當冷藏不再放。</li>
+<li>升級：要升到跨專案層，證據要來自兩個以上專案，或有負責人同意的決策信。</li>
+<li>自動化：附上壞案例和好案例，驗證檢查真的抓得到，才改由程式在 Code Review 時自動跑。<span class="src">[來源: readme]</span></li>
+</ul>
+<h2>實例</h2>
+<p>Clawd 熱力圖的回顧寫了 L-0001～L-0004 四條教訓，例如「要讓 task 平行，共用的東西全部放進最先、單獨做的那個 task」。<span class="src">[來源: clawd-run]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="review-and-bounce.html">審查與退回</a></li>
+<li><a href="case-clawd-heatmap.html">實例：Clawd 熱力圖</a></li>
+<li><a href="enforcement.html">規則由程式執行</a></li>
+</ul></body></html>

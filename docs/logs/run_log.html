@@ -1,0 +1,164 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>執行與檢查紀錄</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../index.html">首頁</a> · <a href="../wiki/index.html">Wiki 目錄</a> · <a href="../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../slides/index.html">教學簡報</a></nav><h1>執行與檢查紀錄</h1>
+<p>格式：時間｜Graph｜節點｜第幾次｜結果｜說明</p>
+<table>
+<thead>
+<tr>
+<th>時間</th>
+<th>Graph</th>
+<th>節點</th>
+<th>次</th>
+<th>結果</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13:28</td>
+<td>A</td>
+<td>取得資料</td>
+<td>1</td>
+<td>通過</td>
+<td>9 個網址 HTTP 200；Demo07a 從 GitHub 抓 notebook</td>
+</tr>
+<tr>
+<td>13:30</td>
+<td>A</td>
+<td>取得資料</td>
+<td>1</td>
+<td>失敗</td>
+<td>react-paper 摘要選擇器抓不到內容（arXiv 頁面結構），raw 檔只剩專案頁</td>
+</tr>
+<tr>
+<td>13:31</td>
+<td>A</td>
+<td>取得資料</td>
+<td>2</td>
+<td>失敗</td>
+<td>改用 arXiv API 回傳空白</td>
+</tr>
+<tr>
+<td>13:32</td>
+<td>A</td>
+<td>取得資料</td>
+<td>3</td>
+<td>通過</td>
+<td>改讀 arXiv 頁面的 citation_abstract meta，補上摘要</td>
+</tr>
+<tr>
+<td>13:40</td>
+<td>A</td>
+<td>討論</td>
+<td>1</td>
+<td>等待</td>
+<td>5 篇提案已送出，等使用者回饋</td>
+</tr>
+<tr>
+<td>13:30</td>
+<td>A</td>
+<td>主題變更</td>
+<td>—</td>
+<td>—</td>
+<td>使用者改主題為 agent-org；外部 5 篇移到 raw_old_ai_agents/，改收本機 6 份資料</td>
+</tr>
+<tr>
+<td>13:33</td>
+<td>A</td>
+<td>取得資料</td>
+<td>1</td>
+<td>通過</td>
+<td>6 份：README、設計文件 artifact、ship skill、13 角色定義＋models.yml、11-17 審查計畫、Clawd 實際 run 紀錄</td>
+</tr>
+<tr>
+<td>13:40</td>
+<td>A</td>
+<td>討論</td>
+<td>1</td>
+<td>等待</td>
+<td>6 份提案已送出，等使用者回饋</td>
+</tr>
+<tr>
+<td>13:41</td>
+<td>A</td>
+<td>討論</td>
+<td>1</td>
+<td>通過</td>
+<td>使用者指示討論已在過去對話完成；子代理摘錄 48 則原話（raw/past-discussions.md），寫進 log.md 回饋表</td>
+</tr>
+<tr>
+<td>13:46</td>
+<td>A</td>
+<td>寫入</td>
+<td>1</td>
+<td>完成</td>
+<td>7 個來源頁、12 個概念頁、index.md</td>
+</tr>
+<tr>
+<td>13:46</td>
+<td>A</td>
+<td>檢查（lint）</td>
+<td>1</td>
+<td>失敗</td>
+<td>4 個錯誤，全是「表格段落沒有來源標記」：roles、dev-flow、tiers、case-clawd-heatmap</td>
+</tr>
+<tr>
+<td>13:48</td>
+<td>A</td>
+<td>修正</td>
+<td>1</td>
+<td>—</td>
+<td>判斷是規則沒考慮表格：表格格子外無法加標記，來源寫在下一段。改 lint：表格可由緊接的下一段標來源；CLAUDE.md 同步寫明</td>
+</tr>
+<tr>
+<td>13:48</td>
+<td>A</td>
+<td>檢查（lint）</td>
+<td>2</td>
+<td>通過</td>
+<td>19 頁、7 篇原文，0 錯誤</td>
+</tr>
+<tr>
+<td>13:50</td>
+<td>B</td>
+<td>規劃大綱</td>
+<td>1</td>
+<td>完成</td>
+<td>只讀 index.md，排 13 張（slides/build/outline_v1.md）</td>
+</tr>
+<tr>
+<td>13:48</td>
+<td>A</td>
+<td>檢查（獨立子代理核對內容）</td>
+<td>1</td>
+<td>進行中</td>
+<td>只讀 raw 與 concepts，逐段核對事實 → logs/check_wiki_v1.md</td>
+</tr>
+<tr>
+<td>13:48</td>
+<td>B</td>
+<td>查詢 Wiki ＋ 撰寫投影片</td>
+<td>1</td>
+<td>完成</td>
+<td>每張只讀大綱指定的 concept 頁，13 張（slides/build/slides_v1.py）</td>
+</tr>
+<tr>
+<td>13:48</td>
+<td>B</td>
+<td>檢查（check_slides.py）</td>
+<td>1</td>
+<td>通過</td>
+<td>13 張、每張有來源、連結檔案都存在</td>
+</tr>
+<tr>
+<td>13:49</td>
+<td>B</td>
+<td>檢查（獨立子代理核對陳述）</td>
+<td>1</td>
+<td>進行中</td>
+<td>只讀 src 指定的 wiki 頁 → logs/check_slides_v1.md</td>
+</tr>
+</tbody>
+</table></body></html>

@@ -1,0 +1,5 @@
+# 原文含私人 repo 的完整內容與對話摘錄，不公開（使用者 2026-11-24 決定）
+raw/
+raw_old_ai_agents/
+__pycache__/
+.DS_Store

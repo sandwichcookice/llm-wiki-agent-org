@@ -1,0 +1,93 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>實例：用 agent-org 做 Clawd 每日用量熱力圖</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>實例：用 agent-org 做 Clawd 每日用量熱力圖</h1>
+<p>這是 agent-org 第一次完整跑完的 run（L 級），需求是使用者的原話：「我需要一個 熱力圖之類的東西 就是我有辦法看到我每天的用量」。<span class="src">[來源: clawd-run, past-discussions]</span></p>
+<h2>時間線</h2>
+<table>
+<thead>
+<tr>
+<th>時間</th>
+<th>階段</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11-10 21:58</td>
+<td>分級</td>
+<td>L：新增每日用量保存（資料結構變更），專案第一個 run</td>
+</tr>
+<tr>
+<td>22:30</td>
+<td>關卡 A</td>
+<td>做</td>
+</tr>
+<tr>
+<td>22:43</td>
+<td>設計</td>
+<td>三個待選決定</td>
+</tr>
+<tr>
+<td>22:52</td>
+<td>設計審查</td>
+<td>退回 1 次</td>
+</tr>
+<tr>
+<td>11-11 02:23</td>
+<td>設計重審</td>
+<td>三位都 PASS</td>
+</tr>
+<tr>
+<td>02:27</td>
+<td>關卡 B</td>
+<td>選定方案</td>
+</tr>
+<tr>
+<td>02:46</td>
+<td>拆任務</td>
+<td>ADR 0001 與 4 個 task</td>
+</tr>
+<tr>
+<td>04:02</td>
+<td>實作</td>
+<td>四個 task 完成，check.sh 86 項通過</td>
+</tr>
+<tr>
+<td>04:20</td>
+<td>Code Review</td>
+<td>Reviewer、安全都 PASS</td>
+</tr>
+<tr>
+<td>04:48</td>
+<td>測試</td>
+<td>QA PASS</td>
+</tr>
+<tr>
+<td>06:46</td>
+<td>關卡 C</td>
+<td>合併</td>
+</tr>
+<tr>
+<td>13:39</td>
+<td>回顧</td>
+<td>3 條教訓升到通用層</td>
+</tr>
+</tbody>
+</table>
+<p><span class="src">[來源: clawd-run]</span></p>
+<h2>負責人在關卡的回覆</h2>
+<p>使用者在 PRD 釐清時選了「token 數」「一年」「另開一個視窗」「從上線那天起累積」；三個關卡都選了建議選項。<span class="src">[來源: past-discussions, clawd-run]</span></p>
+<h2>學到什麼</h2>
+<ul>
+<li>唯一的退回來自維護者：拆工有循環依賴、帳本格式沒有演進規則。</li>
+<li>回顧寫成三條架構師教訓，經負責人同意升到通用層。</li>
+<li>回顧也指出記錄缺口：審查第一行是 PASS、逐項表裡卻有 BLOCK 的情況，不會被自動記成事件。<span class="src">[來源: clawd-run]</span></li>
+</ul>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="dev-flow.html">開發流程</a></li>
+<li><a href="review-and-bounce.html">審查與退回</a></li>
+<li><a href="org-memory.html">組織記憶</a></li>
+</ul></body></html>

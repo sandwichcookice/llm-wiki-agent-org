@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>開發流程</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>開發流程</h1>
+<p>一個 L 級的任務會從分級走到回顧，共九個階段、三個關卡；每個階段留下一份文件，下一個階段就讀那份文件。<span class="src">[來源: design-doc]</span></p>
+<h2>九個階段</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>階段</th>
+<th>誰做</th>
+<th>留下的文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>需求</td>
+<td>PM</td>
+<td>prd.md</td>
+</tr>
+<tr>
+<td>②</td>
+<td>技術設計</td>
+<td>架構師</td>
+<td>design.md</td>
+</tr>
+<tr>
+<td>③</td>
+<td>設計審查</td>
+<td>安全、效能、維護者，平行</td>
+<td>reviews/design-review-*.md</td>
+</tr>
+<tr>
+<td>④</td>
+<td>拆解</td>
+<td>架構師</td>
+<td>tasks/01…N.md</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>實作</td>
+<td>工程師 ×N，各自 worktree</td>
+<td>reports/implement-*.md</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td>Code Review</td>
+<td>Reviewer＋安全＋自動教訓檢查</td>
+<td>reviews/code-review-*.md</td>
+</tr>
+<tr>
+<td>⑦</td>
+<td>測試</td>
+<td>QA</td>
+<td>reviews/test-qa.md</td>
+</tr>
+<tr>
+<td>⑧</td>
+<td>發佈</td>
+<td>Release</td>
+<td>release.md</td>
+</tr>
+<tr>
+<td>⑨</td>
+<td>回顧</td>
+<td>知識管理員</td>
+<td>retro.md、knowledge/</td>
+</tr>
+</tbody>
+</table>
+<p>關卡 A 在 ① 之後、B 在 ③ 之後、C 在 ⑦ 之後。<span class="src">[來源: design-doc]</span></p>
+<h2>文件交接</h2>
+<p>所有文件都放在這個 run 的資料夾，不放進專案 repo；主持人推進到下一格前，org.py 會先檢查文件在不在、審查是不是 PASS。<span class="src">[來源: design-doc, ship-skill]</span></p>
+<h2>回饋線</h2>
+<p>回顧把這次被擋的地方寫進知識庫，下一次派工時主持人把相關教訓放進 brief，流程因此形成一個跨 run 的迴圈。<span class="src">[來源: design-doc]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="tiers.html">分級</a></li>
+<li><a href="gates.html">關卡與決策信</a></li>
+<li><a href="review-and-bounce.html">審查與退回</a></li>
+<li><a href="org-memory.html">組織記憶</a></li>
+</ul></body></html>

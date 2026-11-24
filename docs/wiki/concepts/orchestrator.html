@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>主持人</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>主持人</h1>
+<p>主持人就是使用者開的那個主 session，執行 /agent-org:ship 後負責分級、派工、記帳，並在關卡把問題送到負責人面前。<span class="src">[來源: ship-skill, design-doc]</span></p>
+<h2>不做的事</h2>
+<p>主持人不寫程式、不審程式、不投票、也不軟化任何審查結論；在 org 模式開著的專案裡，hook 會擋掉它自己改專案檔案。<span class="src">[來源: ship-skill]</span></p>
+<h2>怎麼派工</h2>
+<ol>
+<li>用 org.py 組出這個角色的知識 brief：專案目標、角色常駐清單、相關教訓。</li>
+<li>再寫任務 brief：要讀哪些檔、做什麼、不做什麼、輸出寫到哪裡。</li>
+<li>一個 Agent 呼叫做一件事，prompt 只有一句「讀這份 brief 並照做」；同一波的工作一起派出。<span class="src">[來源: ship-skill]</span></li>
+</ol>
+<p>子代理每次被叫起來都是全新的上下文，主持人不轉述對話，只給文件路徑。<span class="src">[來源: design-doc]</span></p>
+<h2>使用者對主持人的要求</h2>
+<ul>
+<li>「有遇到執行問題請問我 不要自己猜測」。<span class="src">[來源: past-discussions]</span></li>
+<li>專案目標由主持人改寫成草稿，負責人確認後才採納。<span class="src">[來源: past-discussions]</span></li>
+<li>主持人可以讀專案的 CLAUDE.md，自己決定哪些部分放進 brief，因為角色本身看不到它。<span class="src">[來源: past-discussions]</span></li>
+</ul>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="dev-flow.html">開發流程</a></li>
+<li><a href="gates.html">關卡與決策信</a></li>
+<li><a href="enforcement.html">規則由程式執行</a></li>
+</ul></body></html>

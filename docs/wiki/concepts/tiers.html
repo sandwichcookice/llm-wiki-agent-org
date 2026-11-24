@@ -1,0 +1,50 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>分級：S／M／L</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>分級：S／M／L</h1>
+<p>主持人第一步先判斷改動大小，決定要跑哪些階段，因為「公司也不會為了改一個錯字寫設計文件」。<span class="src">[來源: design-doc]</span></p>
+<h2>三種分級</h2>
+<table>
+<thead>
+<tr>
+<th>分級</th>
+<th>什麼情況</th>
+<th>跑哪些</th>
+<th>關卡</th>
+<th>子代理數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S 小改</td>
+<td>改字、小 bug、單一檔案</td>
+<td>主持人寫任務 → 實作 → Code Review → 主持人跑測試</td>
+<td>C</td>
+<td>約 2</td>
+</tr>
+<tr>
+<td>M 一般功能</td>
+<td>單一功能、不動 API 與資料模型</td>
+<td>一段話需求 → 簡版設計 → 拆解 → 實作 → 審查 → QA → 發佈清單</td>
+<td>B、C</td>
+<td>約 5</td>
+</tr>
+<tr>
+<td>L 大型或高風險</td>
+<td>新模組、API 或資料模型變更、新依賴、安全相關</td>
+<td>全部九個階段</td>
+<td>A、B、C</td>
+<td>10 個以上</td>
+</tr>
+</tbody>
+</table>
+<p><span class="src">[來源: design-doc]</span></p>
+<h2>拿不準時</h2>
+<p>分級拿不準時往大的那一級算；一個專案的第一個 run 不會是 S。<span class="src">[來源: design-doc]</span></p>
+<p>S、M 級只有被退回過才做回顧；M 級若 QA 抓到漏網的問題也要回顧；L 級每次都做。<span class="src">[來源: design-doc, ship-skill]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="dev-flow.html">開發流程</a></li>
+<li><a href="case-clawd-heatmap.html">實例：Clawd 熱力圖</a></li>
+</ul></body></html>

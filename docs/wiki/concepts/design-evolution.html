@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>設計演進</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>設計演進</h1>
+<p>agent-org 在 11/05 設計、做成 plugin 後，持續把規則從說明改成程式強制，到 11/17 發出 v0.1.28。<span class="src">[來源: design-doc]</span></p>
+<h2>主要階段</h2>
+<ul>
+<li>11/05：從 court skill 轉向「正常公司的開發流程」，定下分工、關卡、持久化記憶。<span class="src">[來源: past-discussions]</span></li>
+<li>之後：參考 Paperclip，把關卡、token 預算、跨機器執行鎖、教訓回歸案例、卡住的 run、專案目標改成程式強制，並新增組織監察人。<span class="src">[來源: design-doc]</span></li>
+<li>11/10～11：第一次完整 run（Clawd 熱力圖），之後的審查找出 16 個高風險缺口並修補。<span class="src">[來源: design-doc]</span></li>
+<li>11/16：盲點搜查找出的項目，在 0.1.28（11/17）補上。<span class="src">[來源: design-doc]</span></li>
+</ul>
+<h2>設計和實作的落差</h2>
+<p>11-17 的計畫檔承認，有兩條使用者同意過的設計在實作時被漏做或改掉：「等待時先做別的事」與「教訓的固定門檻」，計畫要照原設計做回來。<span class="src">[來源: review-plan-1117]</span></p>
+<p>使用者對這類落差的態度很一致：「全部都要做 因為那是原先設計目標」。<span class="src">[來源: past-discussions]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="enforcement.html">規則由程式執行</a></li>
+<li><a href="org-memory.html">組織記憶</a></li>
+</ul></body></html>

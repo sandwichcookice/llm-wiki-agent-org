@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>審查、退回與升級</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>審查、退回與升級</h1>
+<p>審查者彼此看不到對方的結論，各自只回「通過」或「阻擋」；沒通過就退回上一步修改，不會往下走。<span class="src">[來源: design-doc]</span></p>
+<h2>退回規則</h2>
+<ul>
+<li>設計審查（③）有 BLOCK，退回設計（②）。</li>
+<li>Code Review（⑥）或測試（⑦）有 BLOCK、VETO、FAIL，退回實作（⑤）。</li>
+<li>退回會把那一格之後的文件和關卡回覆全部作廢，每一格都要重做。<span class="src">[來源: ship-skill]</span></li>
+</ul>
+<h2>第三次退回就升級</h2>
+<p>同一關退回兩次還沒過，第三次改由升級處理（Fable 5.2）重做一次；還是不過才交給負責人決定，避免 agent 互相繞圈。<span class="src">[來源: design-doc, ship-skill]</span></p>
+<h2>安全否決不能被抵銷</h2>
+<p>安全審查的 VETO 不能被其他人的 PASS 抵銷，也不能被改寫成 PASS；負責人要推翻，必須留下書面理由的決策信。<span class="src">[來源: ship-skill]</span></p>
+<h2>實例</h2>
+<p>Clawd 熱力圖那次 run，設計第一輪被維護者 BLOCK：兩個平行任務要改同一個檔尾、帳本格式沒有演進規則。第二輪設計修好後三位審查都 PASS。<span class="src">[來源: clawd-run]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="dev-flow.html">開發流程</a></li>
+<li><a href="org-memory.html">組織記憶</a></li>
+<li><a href="case-clawd-heatmap.html">實例：Clawd 熱力圖</a></li>
+</ul></body></html>

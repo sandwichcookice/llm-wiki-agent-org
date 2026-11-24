@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>角色與模型</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>角色與模型</h1>
+<p>agent-org 有 13 個角色定義，每個都是一個子代理，看不到負責人的對話，只讀主持人給的 brief 和文件。<span class="src">[來源: roles, design-doc]</span></p>
+<h2>角色表</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>做什麼</th>
+<th>模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PM</td>
+<td>把需求寫成 PRD：問題、使用者、可測試的驗收條件</td>
+<td>Opus 5.5</td>
+</tr>
+<tr>
+<td>架構師／架構師 L</td>
+<td>設計文件、ADR、拆任務；L 級改派 architect-l</td>
+<td>Opus 5.5／Fable 5.2</td>
+</tr>
+<tr>
+<td>工程師 ×N</td>
+<td>在各自的 git worktree 實作一個任務，附測試</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>Code Reviewer</td>
+<td>看 diff 與設計，回 PASS 或 BLOCK</td>
+<td>Opus 5.5</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>設計與程式審查，可以否決（VETO）</td>
+<td>Opus 5.5</td>
+</tr>
+<tr>
+<td>效能、維護者</td>
+<td>L 級設計審查</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>依 PRD 驗收條件寫測試、跑測試</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>發佈清單與回滾方案</td>
+<td>Haiku 5.5</td>
+</tr>
+<tr>
+<td>知識管理員</td>
+<td>回顧時把被擋的原因寫成教訓</td>
+<td>Opus 5.5</td>
+</tr>
+<tr>
+<td>升級處理</td>
+<td>同一關第三次退回時重做</td>
+<td>Fable 5.2</td>
+</tr>
+<tr>
+<td>組織監察人</td>
+<td>不屬於任何專案，提改進組織的建議</td>
+<td>Opus 5.5</td>
+</tr>
+</tbody>
+</table>
+<p>上表的模型取自 models.yml。<span class="src">[來源: roles]</span></p>
+<h2>為什麼審查者和工程師用不同模型</h2>
+<p>設計文件說，這是為了降低「同一個模型自己說自己好」的問題。<span class="src">[來源: design-doc]</span></p>
+<p>這一條是 Claude 在監察人設計中列進「底線」清單的，使用者回「5 可以」表示同意；紀錄裡沒有他自己提出這句話。<span class="src">[來源: past-discussions]</span></p>
+<h2>每個角色都有自己的知識</h2>
+<p>使用者在設計初期就決定，記憶不是只給工程師和 Reviewer，而是每個角色都有。<span class="src">[來源: past-discussions]</span></p>
+<h2>寫程式的習慣</h2>
+<p>使用者指出 AI 喜歡把不可能發生的情況寫成測試、把只用一次的程式抽成函式，要求工程師和 QA 不要這樣做；Code Reviewer 看到「寫錯」和「冗餘」都算阻擋。<span class="src">[來源: past-discussions]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="orchestrator.html">主持人</a></li>
+<li><a href="review-and-bounce.html">審查與退回</a></li>
+<li><a href="auditor.html">組織監察人</a></li>
+</ul></body></html>

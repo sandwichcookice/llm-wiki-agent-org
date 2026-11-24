@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>agent-org 是什麼</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>agent-org 是什麼</h1>
+<p>agent-org 是一個 Claude Code plugin，把公司的軟體開發流程搬進 Claude Code：每個職位是一個子代理，角色之間只靠文件交接，負責人只在三個關卡簽核。<span class="src">[來源: readme, design-doc]</span></p>
+<h2>為什麼要做</h2>
+<p>使用者原本在試一個投票式的 court skill，看完後問「為什麼我們不設計成正常公司的架構呢?」，決定改照一般公司的開發流程來設計。<span class="src">[來源: past-discussions]</span></p>
+<p>他也要求這個組織是持久化的，「像是RAG或是LLM wiki那種」，把哪些地方被擋下來過記住，讓下次不再犯。<span class="src">[來源: past-discussions]</span></p>
+<h2>三個核心想法</h2>
+<ol>
+<li><strong>分工</strong>：PM 寫需求、架構師做設計、工程師實作、審查委員會與 QA 檢查、Release 發版，主持人只負責派工與記帳。<span class="src">[來源: design-doc, readme]</span></li>
+<li><strong>人只在關鍵點出手</strong>：負責人只在關卡 A、B、C 簽核，其他步驟由主持人推進。<span class="src">[來源: design-doc]</span></li>
+<li><strong>規則由程式執行</strong>：org.py 帳本和 hook 擋住缺文件、審查沒過就往下走的情況，不靠模型記得。<span class="src">[來源: readme]</span></li>
+</ol>
+<h2>組織不屬於任何專案</h2>
+<p>角色和主持人做成 plugin 裝在使用者層級，記憶放在 ~/agent-org/，每個專案只是它接的一個案子。<span class="src">[來源: design-doc]</span></p>
+<p>這是使用者的要求：「我在每個專案就都會使用這個組織來完成 不是安插在某個專案內部的持久化」。<span class="src">[來源: past-discussions]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="roles.html">角色與模型</a></li>
+<li><a href="dev-flow.html">開發流程</a></li>
+<li><a href="org-memory.html">組織記憶</a></li>
+<li><a href="enforcement.html">規則由程式執行</a></li>
+</ul></body></html>

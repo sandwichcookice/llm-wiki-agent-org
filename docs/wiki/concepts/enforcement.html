@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>規則由程式執行</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>規則由程式執行</h1>
+<p>agent-org 把會影響結果的規則從「寫在說明裡」改成「由程式擋住」：scripts/org.py 是帳本，hooks 在工具呼叫前後檢查。<span class="src">[來源: readme, design-doc]</span></p>
+<h2>起因</h2>
+<p>使用者在設計第一天就問：「我們要怎麼確保 我在使用claude code 時 他就會依照我們的架構運行」。後來參考 Paperclip 列出建議清單，他第一個選「先做 1 關卡強制」。<span class="src">[來源: past-discussions]</span></p>
+<h2>擋住哪些事</h2>
+<ul>
+<li>階段推進：文件不在、審查第一行不是 PASS、關卡沒放行，org.py 不讓 run 往下走。</li>
+<li>權限：審查檔只有該角色能寫，實作報告只有工程師能寫，主 session 不能代寫。</li>
+<li>帳本：state.json、用量、決策只能透過 org.py 改，編輯工具直接改會被擋。</li>
+<li>執行鎖：同一個 run 同時只能有一個 session 推進。</li>
+<li>token 預算：用滿就停止派工。<span class="src">[來源: readme]</span></li>
+</ul>
+<h2>擋不住的</h2>
+<p>每一節都寫明做不到的事：例如主持人如果刻意用 Bash 寫檔、或替負責人填答案，這裡擋不住；這套機制防的是忘記和走捷徑，不是蓄意造假。<span class="src">[來源: readme]</span></p>
+<p>關卡也只檢查文件在不在、審查是不是 PASS，擋不住「文件寫得好不好、審查者有沒有真的看」。<span class="src">[來源: design-doc]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="orchestrator.html">主持人</a></li>
+<li><a href="gates.html">關卡與決策信</a></li>
+<li><a href="design-evolution.html">設計演進</a></li>
+</ul></body></html>

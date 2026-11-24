@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>來源：13 個角色定義與 models.yml</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>來源：13 個角色定義與 models.yml</h1>
+<p>agents/*.md 是每個子代理的指令，models.yml 決定每個角色用哪個模型。<span class="src">[來源: roles]</span></p>
+<h2>摘要</h2>
+<ul>
+<li>每個角色檔都寫明：看不到負責人的對話，只讀 brief 和它指定的文件；只能寫到 brief 指定的路徑。<span class="src">[來源: roles]</span></li>
+<li>模型分配：PM、架構師、Code Reviewer、安全、知識管理員、監察人用 Opus 5.5；工程師、效能、維護者、QA 用 Sonnet 5.5；Release 用 Haiku 5.5；L 級架構師與升級處理用 Fable 5.2。<span class="src">[來源: roles]</span></li>
+<li>models.yml 註解寫明：換模型是組織的修改，要負責人同意；審查者和工程師要用不同模型。<span class="src">[來源: roles]</span></li>
+</ul>
+<h2>用在哪些頁</h2>
+<p><a href="../concepts/roles.html">角色與模型</a>。<span class="src">[來源: roles]</span></p></body></html>

@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>關卡與決策信</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>關卡與決策信</h1>
+<p>關卡是負責人唯一要出手的地方：A 問「值得做嗎」、B 選定設計方案、C 決定怎麼落地。<span class="src">[來源: design-doc]</span></p>
+<h2>決策信</h2>
+<p>主持人到關卡時先寫一封決策信（要你決定什麼、選項、建議），再問負責人；org.py 要看到「已回覆、結果是繼續」的決策信，才讓 run 離開關卡。<span class="src">[來源: readme, ship-skill]</span></p>
+<p>決策信一封只能回一次；可逆的信過了期限才能照建議做，不可逆的信永遠不會逾時自動照做。<span class="src">[來源: readme]</span></p>
+<h2>為什麼要有決策信</h2>
+<p>使用者在設計初期指出：「在通知 我拍版 的這些地方 並沒有明確的設計 怎麼通知 使用什麼 怎麼問我」，決策信就是回應這個問題的設計。<span class="src">[來源: past-discussions]</span></p>
+<h2>關卡 C 不只是合併</h2>
+<p>使用者後來決定：「關卡C增加PR選項 和細部實作選項…不局限於只能合併回main」，所以關卡 C 是選「怎麼落地」，不是單純按合併。<span class="src">[來源: past-discussions]</span></p>
+<p>使用者也選定關卡 C 的決策信一律不可逆，不能逾時照建議合併。<span class="src">[來源: past-discussions]</span></p>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="orchestrator.html">主持人</a></li>
+<li><a href="dev-flow.html">開發流程</a></li>
+<li><a href="enforcement.html">規則由程式執行</a></li>
+</ul></body></html>
