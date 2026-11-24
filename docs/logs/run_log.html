@@ -160,5 +160,109 @@ th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#ee
 <td>進行中</td>
 <td>只讀 src 指定的 wiki 頁 → logs/check_slides_v1.md</td>
 </tr>
+<tr>
+<td>13:49</td>
+<td>A</td>
+<td>檢查（獨立子代理核對內容）</td>
+<td>1</td>
+<td>通過</td>
+<td>67 段、0 段不被支持；3 項備註（來源標不全、一句轉述加了引號），見 logs/check_wiki_v1.md</td>
+</tr>
+<tr>
+<td>13:49</td>
+<td>B</td>
+<td>檢查（獨立子代理核對陳述）</td>
+<td>1</td>
+<td>失敗</td>
+<td>88 條陳述中 5 條有問題，3 條 BLOCK；另有約 17 個術語沒解釋，見 logs/check_slides_v1.md</td>
+</tr>
+<tr>
+<td>13:53</td>
+<td>A</td>
+<td>寫入（回補）</td>
+<td>2</td>
+<td>完成</td>
+<td>依 B 的失敗回頭改 Wiki：新增 concepts/glossary.md；review-and-bounce 與 case-clawd 對同一次 BLOCK 的說法統一；處理 A 的 3 項備註</td>
+</tr>
+<tr>
+<td>13:53</td>
+<td>A</td>
+<td>檢查（lint）</td>
+<td>3</td>
+<td>通過</td>
+<td>20 頁、0 錯誤</td>
+</tr>
+<tr>
+<td>13:52</td>
+<td>B</td>
+<td>規劃大綱＋查詢 Wiki（v2：改成論點清單）</td>
+<td>2</td>
+<td>完成</td>
+<td>14 張（新增第 2 張名詞小辭典）、58 個論點，每個論點附 Wiki 頁與原文錨點（slides/build/slides_v2.py）</td>
+</tr>
+<tr>
+<td>13:52</td>
+<td>B</td>
+<td>檢查（check_claims.py，v2 新增，移到撰寫之前）</td>
+<td>1</td>
+<td>通過</td>
+<td>58 個錨點都在指定頁、每張 src 等於論點用到的頁、術語都在名詞解釋之後才出現</td>
+</tr>
+<tr>
+<td>13:53</td>
+<td>B</td>
+<td>撰寫投影片</td>
+<td>2</td>
+<td>完成</td>
+<td>內容直接由論點清單產生（v1 備份在 slides/build/index_v1.html）</td>
+</tr>
+<tr>
+<td>13:53</td>
+<td>B</td>
+<td>檢查（check_slides.py）</td>
+<td>2</td>
+<td>通過</td>
+<td>14 張、0 錯誤</td>
+</tr>
+<tr>
+<td>13:54</td>
+<td>B</td>
+<td>檢查（獨立子代理核對陳述）</td>
+<td>2</td>
+<td>失敗</td>
+<td>73 條陳述中 1 條有問題（第 13 張寫「回顧結束」，Wiki 只寫「13:39 回顧」）；術語問題 9 個，見 logs/check_slides_v2.md</td>
+</tr>
+<tr>
+<td>13:56</td>
+<td>B</td>
+<td>查詢 Wiki＋撰寫（v3 修正）</td>
+<td>3</td>
+<td>完成</td>
+<td>第 13 張照 Wiki 原文改寫；名詞小辭典補關卡、分級、模型、PM。diff、PR、回滾等一般軟體詞 Wiki 沒有定義，不補（記為限制）</td>
+</tr>
+<tr>
+<td>13:56</td>
+<td>B</td>
+<td>檢查（check_claims.py ＋ check_slides.py）</td>
+<td>2</td>
+<td>通過</td>
+<td>14 張、61 個論點、0 錯誤</td>
+</tr>
+<tr>
+<td>13:57</td>
+<td>B</td>
+<td>檢查（獨立子代理複核改過的第 2、13 張）</td>
+<td>3</td>
+<td>通過</td>
+<td>15 條陳述、0 條有問題，見 logs/check_slides_v3.md</td>
+</tr>
+<tr>
+<td>13:58</td>
+<td>B</td>
+<td>發布</td>
+<td>1</td>
+<td>完成</td>
+<td>重建 docs/，推上 GitHub Pages</td>
+</tr>
 </tbody>
 </table></body></html>

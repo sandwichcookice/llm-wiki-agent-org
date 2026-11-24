@@ -8,7 +8,7 @@ th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#ee
 <ol>
 <li><strong>記錄</strong>：審查擋下、測試抓到漏的、負責人在關卡說「改」，org.py 自動寫進 episodes。</li>
 <li><strong>提煉</strong>：回顧時知識管理員讀事件，合併重複、附上證據，寫成教訓。</li>
-<li><strong>讀取</strong>：派工時 org.py 依角色、專案、技術棧、路徑篩出相關教訓放進 brief。<span class="src">[來源: design-doc, readme]</span></li>
+<li><strong>讀取</strong>：派工時 org.py 依角色、專案、技術棧、路徑篩出相關教訓放進 brief。<span class="src">[來源: design-doc, readme, roles]</span></li>
 </ol>
 <p>少了讀取這一步，它就只是一個沒人看的資料夾。<span class="src">[來源: design-doc]</span></p>
 <h2>每個角色從下游學</h2>
@@ -22,7 +22,7 @@ th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#ee
 <li>自動化：附上壞案例和好案例，驗證檢查真的抓得到，才改由程式在 Code Review 時自動跑。<span class="src">[來源: readme]</span></li>
 </ul>
 <h2>實例</h2>
-<p>Clawd 熱力圖的回顧寫了 L-0001～L-0004 四條教訓，例如「要讓 task 平行，共用的東西全部放進最先、單獨做的那個 task」。<span class="src">[來源: clawd-run]</span></p>
+<p>Clawd 熱力圖的回顧寫了 L-0001～L-0004 四條教訓，例如要讓幾個 task 平行時，共用的東西要全部放進最先、單獨做的那個 task（轉述）。<span class="src">[來源: clawd-run]</span></p>
 <h2>相關頁面</h2>
 <ul>
 <li><a href="review-and-bounce.html">審查與退回</a></li>

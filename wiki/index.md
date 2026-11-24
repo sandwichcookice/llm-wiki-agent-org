@@ -18,6 +18,7 @@
 | [concepts/auditor.md](concepts/auditor.md) | 組織監察人 |
 | [concepts/case-clawd-heatmap.md](concepts/case-clawd-heatmap.md) | 實例：Clawd 熱力圖 run |
 | [concepts/design-evolution.md](concepts/design-evolution.md) | 設計演進與落差 |
+| [concepts/glossary.md](concepts/glossary.md) | 名詞解釋：子代理、brief、run、hook、worktree… |
 
 ## 來源頁
 

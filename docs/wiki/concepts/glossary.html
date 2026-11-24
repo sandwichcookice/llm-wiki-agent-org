@@ -1,0 +1,38 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>名詞解釋</title><style>body{font-family:"PingFang TC","Noto Sans TC",sans-serif;max-width:860px;margin:0 auto;padding:24px 16px 64px;line-height:1.75;color:#1f2933;background:#fbfbf9}
+a{color:#1d5fa8}nav{font-size:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #ddd}
+h1{font-size:26px}h2{font-size:19px;margin-top:28px}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ccc;padding:5px 8px;vertical-align:top}th{background:#eef1f4}code{background:#eef1f4;padding:0 4px;border-radius:3px}
+.src{color:#6b7280;font-size:12.5px}</style></head><body><nav><a href="../../index.html">首頁</a> · <a href="../../wiki/index.html">Wiki 目錄</a> · <a href="../../wiki/log.html">討論與 ingest 紀錄</a> · <a href="../../slides/index.html">教學簡報</a></nav><h1>名詞解釋</h1>
+<p>這頁只收原文用得到、初學者可能看不懂的詞，解釋都限定在 agent-org 裡的意思。<span class="src">[來源: design-doc, readme]</span></p>
+<h2>角色與組織</h2>
+<ul>
+<li><strong>子代理</strong>：每個職位是一個子代理；每次被叫起來都是全新的上下文，看不到負責人的對話。<span class="src">[來源: design-doc, roles]</span></li>
+<li><strong>主 session、主持人</strong>：使用者自己開的那個 Claude Code 對話就是主持人，負責分級、派工、把關卡送到負責人面前。<span class="src">[來源: design-doc]</span></li>
+<li><strong>負責人</strong>：設計文件稱為「你」，是產品負責人，只在關卡簽核。<span class="src">[來源: design-doc]</span></li>
+<li><strong>plugin</strong>：角色和主持人做成 plugin，裝在使用者層級，所以任何專案都叫得起這個組織。<span class="src">[來源: design-doc]</span></li>
+</ul>
+<h2>文件</h2>
+<ul>
+<li><strong>brief</strong>：主持人派工時給子代理的文件，內容是角色指令、專案目標、角色常駐清單、這次的任務，再加上相關的教訓和範例。<span class="src">[來源: design-doc]</span></li>
+<li><strong>PRD</strong>：PM 把負責人的需求寫成的文件，內容是問題、使用者、驗收條件。<span class="src">[來源: roles]</span></li>
+<li><strong>決策信</strong>：主持人在關卡寫給負責人的信，負責人回覆後 org.py 才放行；一封只能回一次。<span class="src">[來源: readme, ship-skill]</span></li>
+<li><strong>教訓</strong>：知識管理員把被擋下的原因整理成的規則，下次派工時放進 brief。<span class="src">[來源: design-doc]</span></li>
+<li><strong>episodes（事件）</strong>：被擋、漏抓、負責人要求修改、退回升級、一次就通過，由 org.py 自動寫下的紀錄。<span class="src">[來源: design-doc]</span></li>
+</ul>
+<h2>程式與機制</h2>
+<ul>
+<li><strong>run</strong>：交給組織的一件任務，從分級（triage）開始，到完成（done）結束。<span class="src">[來源: ship-skill]</span></li>
+<li><strong>org.py</strong>：記帳工具，負責認專案、組 brief、記事件、檢查階段推進、計算退回次數、處理決策信。<span class="src">[來源: readme]</span></li>
+<li><strong>hook</strong>：plugin 掛在 Claude Code 上的自動檢查，例如每次使用工具前（PreToolUse）檢查權限與派工，子代理結束時（SubagentStop）記 token。<span class="src">[來源: readme]</span></li>
+<li><strong>worktree</strong>：主持人用 git worktree 替每個工程師開的獨立資料夾，各自一個分支，互不干擾。<span class="src">[來源: ship-skill]</span></li>
+<li><strong>PASS／BLOCK／VETO</strong>：審查檔第一行的結論；BLOCK 是阻擋，VETO 是安全審查的否決，只有負責人書面推翻才放行。<span class="src">[來源: readme, ship-skill]</span></li>
+</ul>
+<h2>模型</h2>
+<ul>
+<li><strong>Fable、Opus、Sonnet、Haiku</strong>：角色使用的四種 Claude 模型。依 models.yml 記的 API 定價，Fable 最貴、Opus 次之、Sonnet 再次、Haiku 最便宜，這份價目只拿來比相對成本。<span class="src">[來源: roles]</span></li>
+</ul>
+<h2>相關頁面</h2>
+<ul>
+<li><a href="overview.html">agent-org 是什麼</a></li>
+<li><a href="roles.html">角色與模型</a></li>
+</ul></body></html>
